@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Editar Empleado</title>
+</head>
+<body>
+    <form action="/editar-empleado/{{id}}" method="POST">
+        <label for="branch">Sucursal</label><br>
+        <select name="branch_id" value="{{branch_id}}">
+            {{#branches}}
+                <option value="{{id}}">{{name}}</option>
+            {{/branches}}
+        </select><br>
+        <label for="name">Nombre del Empleado</label><br>
+        <input type="text" name="name" value={{name}} required><br>
+        <label for="rfc" required>RFC</label><br>
+        <input type="text" name="rfc" value={{rfc}}><br>
+        <label for="job">Puesto</label><br>
+        <input type="text" name="job" value={{job}}><br>
+        <input
+            type="submit"
+            value="Guardar"
+            onclick="return validateEmployee(this.form)"
+        >
+        <a href="/">Volver</a>
+    </form>
+    <script src="scripts.js"></script>
+</body>
+</html>

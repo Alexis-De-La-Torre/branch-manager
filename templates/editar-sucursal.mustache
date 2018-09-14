@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Sucursal</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <form action="/editar-sucursal/{{id}}" method="POST">
+        <input type="hidden" name="id" value="{{id}}">
+        <label for="name">Nombre de la sucursal:</label><br>
+        <input name="name" type="text" value="{{name}}" required><br>
+        <label for="address">Direccion:</label><br>
+        <input name="address" type="text" value="{{address}}"><br>
+        <label for="colonia">Colonia:</label><br>
+        <input name="colonia" type="text" value="{{colonia}}"><br>
+        <label for="pc">Codigo Postal:</label><br>
+        <input name="pc" type="text" value="{{pc}}"><br>
+        <label for="city">Ciudad:</label><br>
+        <input name="city" type="text" value="{{city}}"><br>
+        <label for="country">Pais:</label><br>
+        <input name="country" type="text" value="{{country}}"><br>
+        <input
+            type="submit"
+            value="Guardar"
+            onclick="return validateBranch(this.form)"
+        >
+        <a href="/">Volver</a><br>
+        <br>
+    </form>
+    {{#has_employees}}
+        <table>
+            <tr>
+                <td>Nombre</td>
+                <td>Puesto</td>
+                <td>Sucursal</td>
+            </tr>
+            {{#employees}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{rfc}}</td>
+                    <td>{{branch_name}}</td>
+                    <td><a href="/editar-empleado/{{id}}">editar</a></td>
+                </tr>
+            {{/employees}}
+        </table>
+    {{/has_employees}}
+    {{^has_employees}}
+        No hay ningun Empleado asignado a esta sucursal
+    {{/has_employees}}
+    <!-- <script src="scripts.js"></script> -->
+</body>
+</html>

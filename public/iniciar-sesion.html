@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <style>
+      #error-msg {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="error-msg">aaa</div>
+    <form action="/iniciar-sesion" method="POST">
+        <label>Email:</label><br>
+        <input name="username" type="text"><br>
+        <label>Contrasena:</label><br>
+        <input name="password" type="password"><br>
+        <input
+          name="search"
+          type="submit"
+          value="Entrar"
+        >
+        <a href="/registrar-usuario.html">registrarse</a>
+    </form>
+    <script src="scripts.js"></script>
+    <script>
+      displayError()
+    </script>
+  </body>
+</html>

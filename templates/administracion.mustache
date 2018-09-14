@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Administracion</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <strong>Usuario</strong><br>
+        Nombre Completo: {{full_name}}<br>
+        Correo Electronico: {{email}}<br>
+        <br>
+        <strong>Empresa</strong><br>
+        RFC: {{rfc}}<br>
+        Nombre: {{company_name}}<br>
+        <br>
+    </div>
+    <div>
+        <strong>Sucursales</strong><br>
+        {{#has_branches}}
+            <table>
+                <tr>
+                    <td>ID</td>
+                    <td>Nombre</td>
+                    <td># Empleados</td>
+                    <td></td>
+                </tr>
+                {{#branches}}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{name}}</td>
+                        <td>{{employee_num}}</td>
+                        <td><a href="/editar-sucursal/{{id}}">editar</a></td>
+                    </tr>
+                {{/branches}}
+                
+            </table><br>
+        {{/has_branches}}
+        {{^has_branches}}
+            No hay ninguna sucursal 
+        {{/has_branches}}
+    </div>
+    <div>
+        <a href="registrar-sucursal.html">Registar Sucursal</a><br>
+        <a href="registrar-empleado">Registar Empleado</a><br>
+        <br>
+    </div>
+    <a href="/logout">Cerrar Sesion</a>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registrar Empleado</title>
+</head>
+<body>
+    <form action="/registrar-empleado" method="POST">
+        <label for="branch">Sucursal</label><br>
+        <select name="branch_id" >
+            <option value=""></option>
+            {{#branches}}
+                <option value="{{id}}">{{name}}</option>
+            {{/branches}}
+        </select><br>
+        <label for="name">Nombre del Empleado</label><br>
+        <input type="text" name="name" required><br>
+        <label for="rfc" required>RFC</label><br>
+        <input type="text" name="rfc"><br>
+        <label for="job">Puesto</label><br>
+        <input type="text" name="job"><br>
+        <input
+            type="submit"
+            value="Guardar"
+            onclick="return validateEmployee(this.form)"
+        >
+        <a href="/">Volver</a>
+    </form>
+    <script src="scripts.js"></script>
+</body>
+</html>
