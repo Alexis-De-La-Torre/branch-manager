@@ -42,7 +42,7 @@ app.engine('mustache', require('mustache-express')())
 app.set('view engine', 'mustache')
 app.set('views', __dirname + '/templates')
 
-app.use(require('cookie-parser')())
+// app.use(require('cookie-parser')())
 app.use(require('body-parser').urlencoded({ extended: true }))
 app.use(require('express-session')({
   secret: 'secret',
@@ -80,8 +80,14 @@ app.get(
   ensureLogin,
   (req, res) => {
     getAdmValues(req.user)
-      .then(x => res.render('administracion', x))
+      .then(x => res.render('administracion', { ...x, user: req.user }))
   }
+)
+
+app.get(
+  '/registrar-usuario',
+  ensureLogin,
+  (req, res) => res.render('registrar-usuario', { user: req.user })
 )
 
 app.post('/registrar-usuario', (req, res) => {
@@ -98,6 +104,12 @@ app.post('/registrar-usuario', (req, res) => {
     else res.send(`Usuario guardado ahora puedes <a href="/iniciar-sesion.html">authenticarte</a>`)
   })
 })
+
+app.get(
+  '/registrar-sucursal',
+  ensureLogin,
+  (req, res) => res.render('registrar-sucursal', { user: req.user })
+)
 
 app.post(
   '/registrar-sucursal',
@@ -151,7 +163,7 @@ app.get(
     const branchId = req.params.id
     getBranchData(branchId)
       .then(branch => {
-        res.render('editar-sucursal', branch)
+        res.render('editar-sucursal', { ...branch, user: req.user})
       })
   }
 )
@@ -197,7 +209,7 @@ app.get(
       [req.user.email],
       (err, results) => {
         const branches = results.map(x => ({ name: x.name, id: x.id }))
-        res.render('registrar-empleado', { branches })
+        res.render('registrar-empleado', { branches, user: req.user })
       }
     )
   }
@@ -238,7 +250,7 @@ app.get(
       connection.query('select * from branches where user_email = ?', [req.user.email], (err, results) => {
         const branches = results
         console.log({ ...employee, branches })
-        res.render('editar-empleado', { ...employee, branches })  
+        res.render('editar-empleado', { ...employee, branches, user: req.user })  
       })
       // console.log(results)
       // res.render('editar-empleado', results[0])

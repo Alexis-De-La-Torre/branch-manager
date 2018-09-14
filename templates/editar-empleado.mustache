@@ -4,6 +4,7 @@
     <title>Editar Empleado</title>
 </head>
 <body>
+    {{> menu}}
     <form action="/editar-empleado/{{id}}" method="POST">
         <label for="branch">Sucursal</label><br>
         <select name="branch_id" value="{{branch_id}}">

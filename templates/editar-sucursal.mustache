@@ -11,6 +11,7 @@
     </style>
 </head>
 <body>
+    {{> menu}}
     <form action="/editar-sucursal/{{id}}" method="POST">
         <input type="hidden" name="id" value="{{id}}">
         <label for="name">Nombre de la sucursal:</label><br>
