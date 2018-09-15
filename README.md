@@ -5,7 +5,7 @@ A simple app for managing branches and employees from a company.
 ## Running
 1. Install Node.js and Mysql
 2. Run the init-database.sql script
-3. run `npm i` and then `npm start`
+3. run `npm install` and then `npm start`
 
 ## Usage
 There is a test user that can sign in with the gerencia@solucionesrc.com email and password "secreto"
