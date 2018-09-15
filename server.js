@@ -42,7 +42,6 @@ app.engine('mustache', require('mustache-express')())
 app.set('view engine', 'mustache')
 app.set('views', __dirname + '/templates')
 
-// app.use(require('cookie-parser')())
 app.use(require('body-parser').urlencoded({ extended: true }))
 app.use(require('express-session')({
   secret: 'secret',
@@ -240,16 +239,22 @@ app.get(
   ensureLogin,
   (req, res) => {
     const query = `
-      select employees.*, branches.name as branch_name 
+      select employees.*, branches.name as branch_name
       from employees
-      left join branches on branches.id = employees.branch_id
+      join branches on branches.id = employees.branch_id
       where employees.id = ? 
     `
     connection.query(query, [req.params.id], (err, results) => {
+      // this fixes a wird bug where this gets called 2 times
+      // first with the results and then with nothing
+      if (results.length === 0) return
+
       const employee = results[0]
       connection.query('select * from branches where user_email = ?', [req.user.email], (err, results) => {
-        const branches = results
-        console.log({ ...employee, branches })
+        const branches = results.map(branch => {
+          const selected = Number(branch.id) === Number(employee.branch_id)
+          return { ...branch, selected }
+        })
         res.render('editar-empleado', { ...employee, branches, user: req.user })  
       })
       // console.log(results)

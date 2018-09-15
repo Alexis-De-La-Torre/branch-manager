@@ -9,15 +9,15 @@
         <label for="branch">Sucursal</label><br>
         <select name="branch_id" value="{{branch_id}}">
             {{#branches}}
-                <option value="{{id}}">{{name}}</option>
+                <option value="{{id}}" {{#selected}}selected{{/selected}}>{{name}}</option>
             {{/branches}}
         </select><br>
         <label for="name">Nombre del Empleado</label><br>
-        <input type="text" name="name" value={{name}} required><br>
+        <input type="text" name="name" value="{{name}}" required><br>
         <label for="rfc" required>RFC</label><br>
-        <input type="text" name="rfc" value={{rfc}}><br>
+        <input type="text" name="rfc" value="{{rfc}}"><br>
         <label for="job">Puesto</label><br>
-        <input type="text" name="job" value={{job}}><br>
+        <input type="text" name="job" value="{{job}}"><br>
         <input
             type="submit"
             value="Guardar"
@@ -25,6 +25,6 @@
         >
         <a href="/">Volver</a>
     </form>
-    <script src="scripts.js"></script>
+    <script src="../scripts.js"></script>
 </body>
 </html>
