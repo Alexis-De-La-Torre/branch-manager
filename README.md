@@ -2,6 +2,8 @@
 
 A simple app for managing branches and employees from a company.
 
+Running on http://178.128.12.13
+
 ## Running
 1. Install Node.js and Mysql
 2. Run the init-database.sql script
