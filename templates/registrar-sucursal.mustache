@@ -3,29 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Registrar Sucursal</title>
+    <link rel="stylesheet" href="/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     {{> menu}}
-    <form action="/registrar-sucursal" method="POST">
-        <label for="name">Nombre de la sucursal:</label><br>
-        <input name="name" type="text" required><br>
-        <label for="address">Direccion:</label><br>
-        <input name="address" type="text"><br>
-        <label for="colonia">Colonia:</label><br>
-        <input name="colonia" type="text"><br>
-        <label for="pc">Codigo Postal:</label><br>
-        <input name="pc" type="text"><br>
-        <label for="city">Ciudad:</label><br>
-        <input name="city" type="text"><br>
-        <label for="country">Pais:</label><br>
-        <input name="country" type="text"><br>
-        <input
-            type="submit"
-            value="Guardar"
-            onclick="return validateBranch(this.form)"
-        >
-        <a href="/">Volver</a>
-    </form>
+    <div id="container">
+        <h1>Registrar Sucursal</h1>
+        <form action="/registrar-sucursal" method="POST">
+            <label for="name">Nombre de la sucursal:</label><br>
+            <input name="name" type="text" required><br>
+            <label for="address">Direccion:</label><br>
+            <input name="address" type="text"><br>
+            <label for="colonia">Colonia:</label><br>
+            <input name="colonia" type="text"><br>
+            <label for="pc">Codigo Postal:</label><br>
+            <input name="pc" type="text"><br>
+            <label for="city">Ciudad:</label><br>
+            <input name="city" type="text"><br>
+            <label for="country">Pais:</label><br>
+            <input name="country" type="text"><br>
+            <input
+                type="submit"
+                value="Guardar"
+                onclick="return validateBranch(this.form)"
+            >
+        </form>
+    </div>
     <script src="scripts.js"></script>
 </body>
 </html>

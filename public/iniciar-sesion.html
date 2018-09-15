@@ -1,9 +1,14 @@
 <html>
   <head>
     <title>Iniciar Sesion</title>
+    <script src="reset.css"></script>
+    <link rel="stylesheet" href="/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <form action="/iniciar-sesion" method="POST">
+    <form action="/iniciar-sesion" method="POST" id="signin">
+        <h1>Iniciar Sesion</h1>
         <label>Email:</label><br>
         <input name="username" type="text"><br>
         <label>Contrasena:</label><br>
@@ -13,7 +18,7 @@
           type="submit"
           value="Entrar"
         >
-        <a href="/registrar-usuario.html">registrarse</a>
+        <a href="/registrar-usuario">o registrarse</a>
     </form>
   </body>
 </html>

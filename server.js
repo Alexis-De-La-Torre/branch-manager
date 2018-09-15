@@ -85,7 +85,6 @@ app.get(
 
 app.get(
   '/registrar-usuario',
-  ensureLogin,
   (req, res) => res.render('registrar-usuario', { user: req.user })
 )
 
@@ -142,17 +141,18 @@ async function getBranchData (id) {
     .then(x => x[0][0])
 
   // const employees_q = 'select * from employees where branch_id = ?'
-  const employees_q = `
-    select employees.*, branches.name as branch_name 
-    from employees
-    left join branches on branches.id = employees.branch_id
-    where employees.branch_id = ?
-  `
-  const employees = await connection.promise().query(employees_q, [branch.id])
-    .then(x => x[0])
+  if (branch) {
+    const employees_q = `
+      select employees.*, branches.name as branch_name 
+      from employees
+      left join branches on branches.id = employees.branch_id
+      where employees.branch_id = ?
+    `
+    const employees = await connection.promise().query(employees_q, [branch.id])
+      .then(x => x[0])
 
-  return { ...branch, has_employees: employees.length > 0, employees }
-    
+    return { ...branch, has_employees: employees.length > 0, employees }
+  }
 }
 
 app.get(

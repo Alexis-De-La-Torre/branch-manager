@@ -3,53 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Administracion</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-    </style>
+    <link rel="stylesheet" href="reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     {{> menu}}
-    <div>
-        <strong>Usuario</strong><br>
-        Nombre Completo: {{full_name}}<br>
-        Correo Electronico: {{email}}<br>
-        <br>
-        <strong>Empresa</strong><br>
-        RFC: {{rfc}}<br>
-        Nombre: {{company_name}}<br>
-        <br>
-    </div>
-    <div>
-        <strong>Sucursales</strong><br>
-        {{#has_branches}}
-            <table>
-                <tr>
-                    <td>Nombre</td>
-                    <td># Empleados</td>
-                    <td></td>
-                </tr>
-                {{#branches}}
+    <div id="container">
+        <h1>Informacion General.</h1>
+        <div id="user-info">
+            <div class="card">
+                <div class="card-title">Usuario</div>
+                <div class="card-body">
+                    <strong>Nombre:</strong> {{full_name}}<br>
+                    <strong>Correo:</strong> {{email}}
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Empresa</div>
+                <div class="card-body">
+                    <strong>RFC:</strong> {{rfc}}<br>
+                    <strong>Nombre:</strong> {{company_name}}<br>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div id="branch-title-and-edit">
+                <h1>Sucursales</h1>
+                <div class="edit-buttons">
+                    <a href="registrar-sucursal"><button>Registar Sucursal</button></a>
+                    <a href="registrar-empleado"><button>Registar Empleado</button></a>
+                </div>
+            </div>
+            {{#has_branches}}
+                <table>
                     <tr>
-                        <td>{{name}}</td>
-                        <td>{{employee_num}}</td>
-                        <td><a href="/editar-sucursal/{{id}}">editar</a></td>
+                        <td>Nombre</td>
+                        <td># Empleados</td>
+                        <td></td>
                     </tr>
-                {{/branches}}
-                
-            </table><br>
-        {{/has_branches}}
-        {{^has_branches}}
-            No hay ninguna sucursal 
-        {{/has_branches}}
+                    {{#branches}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{employee_num}}</td>
+                            <td><a href="/editar-sucursal/{{id}}">editar</a></td>
+                        </tr>
+                    {{/branches}}
+                    
+                </table>
+            {{/has_branches}}
+            {{^has_branches}}
+                No hay ninguna sucursal 
+            {{/has_branches}}
+        </div>
     </div>
-    <div>
-        <a href="registrar-sucursal">Registar Sucursal</a><br>
-        <a href="registrar-empleado">Registar Empleado</a><br>
-        <br>
-    </div>
-    <a href="/logout">Cerrar Sesion</a>
 </body>
 </html>

@@ -1,0 +1,159 @@
+body {
+    background-color: rgb(243, 245, 249);
+    font-family: 'Roboto', sans-serif;
+    color: rgb(26, 26, 26);
+}
+
+button, input[type=button], input[type=submit] {
+    background: none;
+    border: solid 2px;
+    padding: 1em;
+    background-color: white;
+    font-size: 12px;
+    font-weight: 700;
+    border: solid 1px rgb(78, 78, 78);
+    border-radius: 10px;
+    color: black;
+}
+
+body button:hover {
+    background: rgb(238, 238, 238);
+}
+
+h1 {
+    font-size: 35px;
+    margin-bottom: 1em;
+    /* font-weight: 700; */
+}
+
+strong {
+    font-weight: 700;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5em;
+    background-color: white;
+    -webkit-box-shadow: -1px 14px 28px -11px rgba(0,0,0,0.1);
+    -moz-box-shadow: -1px 14px 28px -11px rgba(0,0,0,0.1);
+    box-shadow: -1px 14px 28px -11px rgba(0,0,0,0.1);
+}
+
+#header > a {
+    margin-left: 5em;
+    color: rgb(26, 26, 26);
+}
+
+#sesion-info a {
+    margin-right: 5em;
+}
+
+#sesion-info span {
+    margin-right: 2em;
+}
+
+#container {
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 3em;
+}
+
+#user-info {
+    display: flex;
+    margin-bottom: 4em;
+    /* justify-content: space-around; */
+}
+
+#user-info .card:first-child {
+    margin-right: 3em;
+}
+
+.card {
+    width: 450px;
+    border: solid 1px rgb(49, 49, 49);
+}
+
+.card-title {
+    background-color: rgb(49, 49, 49);
+    color: white;
+    text-align: center;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+.card-body {
+    padding: 2em;
+    background-color: white;
+    line-height: 1.6;
+}
+
+#branch-title-and-edit {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+#branch-title-and-edit > h1 {
+    margin: 0;
+    margin-right: 2em;
+}
+
+#branch-title-and-edit  a:first-child {
+    margin-right: 1em;
+}
+
+table {
+    background-color: white;
+    border: solid 1px rgb(49, 49, 49);
+}
+
+tr {
+    border-bottom: solid 1px rgb(78, 78, 78);
+}
+
+tr:first-child {
+    font-weight: 700;
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+td {
+    padding: 1em 3em 1em 3em;
+}
+
+#container:last-child {
+    margin-bottom: 4em;
+}
+
+form {
+    margin-bottom: 3em;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+    border: solid 1px rgb(78, 78, 78);
+    padding: 0.7em 1em;
+}
+
+select {
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+    border: solid 1px rgb(78, 78, 78);
+    padding: 0.7em 1em;
+    background-color: white;
+}
+
+#signin {
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width:30em;
+    height:18em;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+}

@@ -2,30 +2,34 @@
 <html lang="en">
 <head>
     <title>Registrar Empleado</title>
+    <link rel="stylesheet" href="/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     {{> menu}}
-    <form action="/registrar-empleado" method="POST">
-        <label for="branch">Sucursal</label><br>
-        <select name="branch_id" >
-            <option value=""></option>
-            {{#branches}}
-                <option value="{{id}}">{{name}}</option>
-            {{/branches}}
-        </select><br>
-        <label for="name">Nombre del Empleado</label><br>
-        <input type="text" name="name" required><br>
-        <label for="rfc" required>RFC</label><br>
-        <input type="text" name="rfc"><br>
-        <label for="job">Puesto</label><br>
-        <input type="text" name="job"><br>
-        <input
-            type="submit"
-            value="Guardar"
-            onclick="return validateEmployee(this.form)"
-        >
-        <a href="/">Volver</a>
-    </form>
+    <div id="container">
+        <form action="/registrar-empleado" method="POST">
+            <label for="branch">Sucursal</label><br>
+            <select name="branch_id" >
+                <option value=""></option>
+                {{#branches}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/branches}}
+            </select><br>
+            <label for="name">Nombre del Empleado</label><br>
+            <input type="text" name="name" required><br>
+            <label for="rfc" required>RFC</label><br>
+            <input type="text" name="rfc"><br>
+            <label for="job">Puesto</label><br>
+            <input type="text" name="job"><br>
+            <input
+                type="submit"
+                value="Guardar"
+                onclick="return validateEmployee(this.form)"
+            >
+        </form>
+    </div>
     <script src="scripts.js"></script>
 </body>
 </html>

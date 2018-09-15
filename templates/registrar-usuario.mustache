@@ -1,5 +1,9 @@
 <html>
   <head>
+    <script src="reset.css"></script>
+    <link rel="stylesheet" href="/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
+    <link rel="stylesheet" href="/styles.css">
     <style>
         #rfc-err-msg {
             display: none;
@@ -15,30 +19,33 @@
     </style>
   </head>
   <body>
-    {{> menu}}
-    <div id="errors"></div>
-    <form action="/registrar-usuario" method="POST">
-        <label for="full_name">Nombre Completo:</label><br>
-        <input name="full_name" type="text"><br>
-        <label for="email">Correo Electronico:</label><br>
-        <div id="email-err-msg"><span>Este Correo ya esta utilizado</span><br></div>
-        <input name="email" type="email"><br>
-        <label for="rfc">RFC:</label><br>
-        <div id="rfc-err-msg"><span>Este RFC ya esta utilizado</span><br></div>
-        <input name="rfc" type="text"><br>
-        <label for="company_name">Nombre de la Empresa:</label><br>
-        <input name="company_name" type="text"><br>
-        <label for="password">Contrasena:</label><br>
-        <input name="password" type="password"><br>
-        <label for="password_confirm">Confirmar Contrasena:</label><br>
-        <input name="password_confirm" type="password"><br>
-        <input
-        name="search"
-        type="button"
-        value="Guardar"
-        onclick="validateSignin(this.form)"
-        >
-    </form>
+    <div id="container">
+        <h1>Registrar Usuario</h1>
+        <div id="errors"></div>
+        <form action="/registrar-usuario" method="POST">
+            <label for="full_name">Nombre Completo:</label><br>
+            <input name="full_name" type="text"><br>
+            <label for="email">Correo Electronico:</label><br>
+            <div id="email-err-msg"><span>Este Correo ya esta utilizado</span><br></div>
+            <input name="email" type="email"><br>
+            <label for="rfc">RFC:</label><br>
+            <div id="rfc-err-msg"><span>Este RFC ya esta utilizado</span><br></div>
+            <input name="rfc" type="text"><br>
+            <label for="company_name">Nombre de la Empresa:</label><br>
+            <input name="company_name" type="text"><br>
+            <label for="password">Contrasena:</label><br>
+            <input name="password" type="password"><br>
+            <label for="password_confirm">Confirmar Contrasena:</label><br>
+            <input name="password_confirm" type="password"><br>
+            <input
+            name="search"
+            type="button"
+            value="Guardar"
+            onclick="validateSignin(this.form)"
+            >
+            <a href="/">o Iniciar sesion</a>
+        </form>
+    </div>
     <script src="scripts.js"></script>
 </body>
 </html>
