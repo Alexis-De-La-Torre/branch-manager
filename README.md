@@ -2,7 +2,7 @@
 
 A simple app for managing branches and employees from a company.
 
-Running on http://178.128.12.13
+Running on http://206.189.77.223
 
 ## Running
 1. Install Node.js and Mysql
