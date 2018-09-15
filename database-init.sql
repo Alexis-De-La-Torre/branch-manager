@@ -1,3 +1,5 @@
+create database branch_manager;
+
 create table users(
     email text not null,
     hash text not null,

@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const path = require('path')
 
 var express = require('express')
@@ -9,9 +11,9 @@ const crypto = require('crypto')
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
-  password: 'alexis',
-  database: 'timbox',
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASS,
+  database: 'branch_manager',
 })
 
 connection.connect()
