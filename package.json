@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server",
-    "dev": "concurrently -k \"nodemon -e js,html,mustache ./server\" \"browser-sync start --proxy http://localhost:3000 --files . --port 3001\""
+    "dev": "PORT=3000 concurrently -k \"nodemon -e js,html,mustache ./server\" \"browser-sync start --proxy http://localhost:3000 --files . --port 3001\""
   },
   "author": "Alexis De La Torre",
   "license": "ISC",

@@ -1,35 +1,18 @@
 <html>
   <head>
-    <script src="reset.css"></script>
-    <link rel="stylesheet" href="/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
     <link rel="stylesheet" href="/styles.css">
-    <style>
-        #rfc-err-msg {
-            display: none;
-        }
-
-        #email-err-msg {
-            display: none;
-        }
-
-        .invalid {
-            border: 1px solid red;
-        }
-    </style>
   </head>
   <body>
     <div id="container">
-        <h1>Registrar Usuario</h1>
+        <h1>Registrar Nuevo Usuario</h1>
         <div id="errors"></div>
         <form action="/registrar-usuario" method="POST">
             <label for="full_name">Nombre Completo:</label><br>
             <input name="full_name" type="text"><br>
             <label for="email">Correo Electronico:</label><br>
-            <div id="email-err-msg"><span>Este Correo ya esta utilizado</span><br></div>
             <input name="email" type="email"><br>
             <label for="rfc">RFC:</label><br>
-            <div id="rfc-err-msg"><span>Este RFC ya esta utilizado</span><br></div>
             <input name="rfc" type="text"><br>
             <label for="company_name">Nombre de la Empresa:</label><br>
             <input name="company_name" type="text"><br>
@@ -41,11 +24,11 @@
             name="search"
             type="button"
             value="Guardar"
-            onclick="validateSignin(this.form)"
+            onclick="return validateSignin(this.form)"
             >
             <a href="/">o Iniciar sesion</a>
         </form>
     </div>
-    <script src="scripts.js"></script>
+    <script src="validate.js"></script>
 </body>
 </html>

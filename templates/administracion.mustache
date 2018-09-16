@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Administracion</title>
-    <link rel="stylesheet" href="reset.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -28,18 +27,13 @@
             </div>
         </div>
         <div>
-            <div id="branch-title-and-edit">
-                <h1>Sucursales</h1>
-                <div class="edit-buttons">
-                    <a href="registrar-sucursal"><button>Registar Sucursal</button></a>
-                    <a href="registrar-empleado"><button>Registar Empleado</button></a>
-                </div>
+            <h1>Sucursales</h1>
             </div>
             {{#has_branches}}
                 <table>
                     <tr>
                         <td>Nombre</td>
-                        <td># Empleados</td>
+                        <td>Empleados</td>
                         <td></td>
                     </tr>
                     {{#branches}}
@@ -53,8 +47,10 @@
                 </table>
             {{/has_branches}}
             {{^has_branches}}
-                No hay ninguna sucursal 
+                <p>No hay ninguna sucursal registrada.</p>
             {{/has_branches}}
+            <a href="registrar-sucursal" style="margin-right: 1em;"><button>Registar Nueva Sucursal</button></a>
+            <a href="registrar-empleado"><button>Registar Nuevo Empleado</button></a>
         </div>
     </div>
 </body>

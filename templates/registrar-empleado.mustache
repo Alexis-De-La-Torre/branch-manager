@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <title>Registrar Empleado</title>
-    <link rel="stylesheet" href="/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
     <link rel="stylesheet" href="/styles.css">
 </head>
@@ -10,7 +9,8 @@
     {{> menu}}
     <div id="container">
         <form action="/registrar-empleado" method="POST">
-            <label for="branch">Sucursal</label><br>
+            <div id="errors"></div>
+            <label for="branch_id">Sucursal</label><br>
             <select name="branch_id" >
                 <option value=""></option>
                 {{#branches}}
@@ -26,10 +26,10 @@
             <input
                 type="submit"
                 value="Guardar"
-                onclick="return validateEmployee(this.form)"
+                onclick="validateEmployee(this.form)"
             >
         </form>
     </div>
-    <script src="scripts.js"></script>
+    <script src="validate.js"></script>
 </body>
 </html>

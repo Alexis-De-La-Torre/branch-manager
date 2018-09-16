@@ -1,8 +1,6 @@
 <html>
   <head>
     <title>Iniciar Sesion</title>
-    <script src="reset.css"></script>
-    <link rel="stylesheet" href="/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
     <link rel="stylesheet" href="/styles.css">
   </head>
@@ -10,9 +8,9 @@
     <form action="/iniciar-sesion" method="POST" id="signin">
         <h1>Iniciar Sesion</h1>
         <label>Email:</label><br>
-        <input name="username" type="text"><br>
+        <input name="username" type="text" required><br>
         <label>Contrasena:</label><br>
-        <input name="password" type="password"><br>
+        <input name="password" type="password" required><br>
         <input
           name="search"
           type="submit"
@@ -20,5 +18,19 @@
         >
         <a href="/registrar-usuario">o registrarse</a>
     </form>
+    <script>
+      var urlParams = new URLSearchParams(window.location.search)
+      var failure = urlParams.get('failure') === 'true'
+      
+      if (failure) {
+        var form = document.getElementById('signin')      
+
+        var errorBox = document.createElement('p')
+        errorBox.classList.add('error-box')
+        errorBox.innerHTML = 'El Email o la Contrasena son incorrectos.'
+
+        form.insertBefore(errorBox, form.lastChild)
+      }
+    </script>
   </body>
 </html>

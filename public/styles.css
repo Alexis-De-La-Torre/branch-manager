@@ -107,6 +107,7 @@ strong {
 table {
     background-color: white;
     border: solid 1px rgb(49, 49, 49);
+    margin-bottom: 2em;
 }
 
 tr {
@@ -156,4 +157,14 @@ select {
     height:18em;
     margin-top: -9em; /*set to a negative number 1/2 of your height*/
     margin-left: -15em; /*set to a negative number 1/2 of your width*/
+}
+
+.error-box {
+    color: red;
+    margin-top: 1em;
+    border: solid 1px red;
+    max-width: 400px;
+    padding: 1em;
+    line-height: 1.3;
+    margin-bottom: 1em;
 }
