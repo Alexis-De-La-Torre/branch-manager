@@ -44,6 +44,7 @@ app.engine('mustache', require('mustache-express')())
 app.set('view engine', 'mustache')
 app.set('views', __dirname + '/templates')
 
+app.use(require('morgan')('combined'))
 app.use(require('body-parser').urlencoded({ extended: true }))
 app.use(require('express-session')({
   secret: 'secret',
